@@ -24,5 +24,6 @@ comments: [
 ReactDOM.render(<App
   title={post.title}
   allAuthors={post.authors}
+  body={post.body}
   comments={post.comments}/> , document.getElementById('root'));
 registerServiceWorker();
