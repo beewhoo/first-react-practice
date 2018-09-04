@@ -36,8 +36,8 @@ const App = () => (
       <nav>
         <Link to="/">Home</Link>{' '}
         <Link to="/blog">My Blog</Link>{' '}
-        <Link to="/about">About moi</Link>{' '}
-        <Link to="/movie">The best movie</Link>{' '}
+        <Link to="/about">About me</Link>{' '}
+        <Link to="/movie">Favorite movie</Link>{' '}
         <Link to="/food">Favorite Food</Link>
       </nav>
 
@@ -47,7 +47,6 @@ const App = () => (
       <Route path="/about" component={About}/>
       <Route path="/movie" component={Movie}/>
       <Route path="/food" component={Food}/>
-
       <Route path="/blog" component={
         () => (<Blog title={post.title}
                   allAuthors={post.authors}
