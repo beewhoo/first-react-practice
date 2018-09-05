@@ -1,13 +1,44 @@
 import React, {Component} from 'react';
 
 class Home extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+        shakeSpeare:""
+    }
+  }
+
+  componentDidMount() {
+
+    var base = this
+
+    //fetch a poem
+
+    let poemApi = 'http://ShakeItSpeare.com/api/poem';
+    fetch(poemApi)
+    .then((response) => {
+      return response.json()
+    }).then((json)=> {
+      base.setState({shakeSpeare:json.poem});
+    }).catch((ex) => {
+      console.log('An error occured when parsing');
+
+    })
+
+
+  }
+
+
+
+
+
   render(){
+    let poetry = this.state.shakeSpeare;
     return(
       <div>
-        <h1> Welcome to my website </h1>
-        <h3>Here is a little about me</h3>
-        <img src='http://www.aleksandrarose.net/wp-content/uploads/2016/05/6c54ef071a7547c1edaac16bdc301b16.jpg' width='600px'/>
-
+        <h1> My favorite Shakespeare poem </h1>
+        {poetry}
       </div>
     )
   }
